@@ -16,7 +16,7 @@ function App() {
     },
     {
       id: "e3",
-      title: "Car Insurance",
+      title: "Health Insurance",
       amount: 294.67,
       date: new Date(2021, 2, 28),
     },
