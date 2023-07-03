@@ -1,5 +1,6 @@
 import keyConceptsImage from '../../assets/images/key-concepts.png';
 import React  from 'react';
+import './Header.css';
 
 function Header() {
   return (
