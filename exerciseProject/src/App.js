@@ -1,3 +1,4 @@
+import React  from 'react';
 import keyConceptsImage from './assets/images/key-concepts.png';
 import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
