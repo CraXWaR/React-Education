@@ -2,9 +2,9 @@ import React from "react";
 import "./ExpenseFilter.css";
 
 const ExpensesFilter = (props) => {
-    const filterHandler = (e) => {
-        props.onSelectFilter(e.target.value);
-    };
+  const filterHandler = (e) => {
+    props.onSelectFilter(e.target.value);
+  };
 
   return (
     <div className="expenses-filter">
