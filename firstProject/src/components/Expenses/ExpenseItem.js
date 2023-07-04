@@ -6,7 +6,7 @@ import { useState } from "react";
 function ExpenseItem(props) {
   const [title, setTitle] = useState(props.title);
   const eventHandler = () => {
-    setTitle('New Title!');
+    setTitle("New Title!");
   };
 
   return (
