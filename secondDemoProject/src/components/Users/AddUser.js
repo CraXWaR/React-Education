@@ -12,14 +12,15 @@ const AddUser = (props) => {
     event.preventDefault();
 
     if (username.trim().length === 0 || age.trim().length === 0) {
-        return;
-    };
+      return;
+    }
 
     if (Number(age) < 1) {
-        return;
-    };
+      return;
+    }
 
-    console.log(username, age);
+    props.onAdd(username, age);
+
     setUsername("");
     setAge("");
   };
