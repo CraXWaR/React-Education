@@ -7,12 +7,13 @@ const dumyUserInput = {
   duration: 10,
 };
 
-const UserInput = () => {
+const UserInput = (props) => {
   const [userInput, setUserInput] = useState(dumyUserInput);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("calculating...");
+
+    props.onCalculate(userInput);
   };
 
   const resetHandler = () => {
