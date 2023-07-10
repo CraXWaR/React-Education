@@ -22,10 +22,10 @@ const UserInput = (props) => {
   };
 
   const changeHandler = (input, value) => {
-    setUserInput((previousInput) => {
+    setUserInput((prevInput) => {
       return {
-        ...previousInput,
-        [input]: value,
+        ...prevInput,
+        [input]: +value,
       };
     });
   };
