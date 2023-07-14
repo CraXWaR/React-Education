@@ -11,7 +11,7 @@ const Header = (props) => {
         <HeaderButton />
       </header>
       <div className={classes["main-image"]}>
-        <img src={mealsImage} alt="Just image" />
+        <img src={mealsImage} alt="Food" />
       </div>
     </Fragment>
   );
