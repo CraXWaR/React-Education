@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Demo = (props) => {
     return (
@@ -6,4 +6,4 @@ const Demo = (props) => {
     );
 }
 
-export default Demo
+export default memo(Demo);
