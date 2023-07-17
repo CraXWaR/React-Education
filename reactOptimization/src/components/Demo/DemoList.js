@@ -6,10 +6,8 @@ const DemoList = (props) => {
   const { items } = props;
 
   const sortedList = useMemo(() => {
-    console.log('Items sorted');
     return items.sort((a, b) => a - b);
   }, [items]); 
-  console.log('DemoList RUNNING');
 
   return (
     <div className={classes.list}>
