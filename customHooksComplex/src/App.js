@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Tasks from "./components/Tasks/Tasks";
 import NewTask from "./components/NewTask/NewTask";
@@ -7,25 +7,20 @@ import useHttp from "./hooks/use-http";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const transformedTasks = useCallback((taskObject) => {
-    const loadedTasks = [];
-
-    for (const taskKey in taskObject) {
-      loadedTasks.push({ id: taskKey, text: taskObject[taskKey].text });
-    }
-
-    setTasks(loadedTasks);
-  }, []);
-
-  const { isLoading, error, sendRequest: fetchTasks } = useHttp(
-    transformedTasks
-  );
+  const { isLoading, error, sendRequest: fetchTasks } = useHttp();
 
   useEffect(() => {
-    fetchTasks({
-      url:
-        "https://react-practice-10998-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json",
-    });
+    const transformTasks = (tasksObj) => {
+      const loadedTasks = [];
+
+      for (const taskKey in tasksObj) {
+        loadedTasks.push({ id: taskKey, text: tasksObj[taskKey].text });
+      }
+
+      setTasks(loadedTasks);
+    };
+
+    fetchTasks({ url: "firebaseDataBase/tasks.json" }, transformTasks);
   }, [fetchTasks]);
 
   const taskAddHandler = (task) => {
