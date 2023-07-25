@@ -14,6 +14,18 @@ const SimpleInput = (props) => {
 
   const nameChange = (e) => {
     setEnteredName(e.target.value);
+
+    if (e.target.value.trim() !== "") {
+      setNameValid(true);
+    }
+  };
+
+  const nameBlur = (e) => {
+    setNameTouched(true);
+
+    if (enteredName.trim() === "") {
+      setNameValid(false);
+    }
   };
 
   const formHandler = (e) => {
@@ -46,6 +58,7 @@ const SimpleInput = (props) => {
           value={enteredName}
           ref={nameRef}
           onChange={nameChange}
+          onBlur={nameBlur}
         />
         {nameInputValid && <p className="error-text">Name can't be empty!</p>}
       </div>
