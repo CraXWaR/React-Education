@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const SimpleInput = (props) => {
-  const nameRef = useRef();
   const [enteredName, setEnteredName] = useState();
   const [nameValid, setNameValid] = useState(false);
   const [nameTouched, setNameTouched] = useState();
@@ -41,9 +40,6 @@ const SimpleInput = (props) => {
 
     console.log(enteredName);
     setEnteredName("");
-
-    const enteredNameRef = nameRef.current.value;
-    console.log(enteredNameRef);
   };
   const nameInputValid = !nameValid && nameTouched;
   const nameClasses = nameInputValid ? "form-control invalid" : "form-control";
@@ -56,7 +52,6 @@ const SimpleInput = (props) => {
           type="text"
           id="name"
           value={enteredName}
-          ref={nameRef}
           onChange={nameChange}
           onBlur={nameBlur}
         />
