@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 const SimpleInput = (props) => {
-  const [enteredName, setEnteredName] = useState();
-  const [nameTouched, setNameTouched] = useState();
+  const [enteredName, setEnteredName] = useState('');
+  const [nameTouched, setNameTouched] = useState(false);
+  const [formIsValid, setFormIsValid] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputValid = !enteredNameIsValid && nameTouched;
