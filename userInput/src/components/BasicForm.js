@@ -36,14 +36,13 @@ const BasicForm = (props) => {
     formIsValid = true;
   }
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
 
     if (!formIsValid) {
       return;
     }
 
-    console.log("Submitted!");
     console.log(firstNameValue, lastNameValue, emailValue);
 
     resetFirstName();

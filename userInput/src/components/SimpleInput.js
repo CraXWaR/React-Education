@@ -25,16 +25,13 @@ const SimpleInput = (props) => {
     formIsValid = true;
   }
 
-  const formSubmissionHandler = (event) => {
-    event.preventDefault();
+  const formSubmissionHandler = (e) => {
+    e.preventDefault();
 
     if (!enteredNameIsValid) {
       return;
     }
 
-    console.log(enteredName);
-
-    // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM
     resetNameInput();
     resetEmailInput();
   };

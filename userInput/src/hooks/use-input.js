@@ -24,14 +24,14 @@ const useInput = (validateValue) => {
     initialInputState
   );
 
-  const valueIsValid = validateValue(inputState.value);
-  const hasError = !valueIsValid && inputState.isTouched;
+  const valueValid = validateValue(inputState.value);
+  const hasError = !valueValid && inputState.isTouched;
 
-  const valueChangeHandler = (event) => {
-    dispatch({ type: "INPUT", value: event.target.value });
+  const valueChangeHandler = (e) => {
+    dispatch({ type: "INPUT", value: e.target.value });
   };
 
-  const inputBlurHandler = (event) => {
+  const inputBlurHandler = (e) => {
     dispatch({ type: "BLUR" });
   };
 
@@ -41,7 +41,7 @@ const useInput = (validateValue) => {
 
   return {
     value: inputState.value,
-    isValid: valueIsValid,
+    isValid: valueValid,
     hasError,
     valueChangeHandler,
     inputBlurHandler,
