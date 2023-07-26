@@ -25,6 +25,16 @@ const Cart = (props) => {
     setIsCheck(true);
   };
 
+  const submitOrder = async (data) => {
+    fetch("firebaseDB/orders.json", {
+      method: "POST",
+      body: JSON.stringify({
+        user: data,
+        order: cartCtx.items,
+      }),
+    });
+  };
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -60,7 +70,7 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {isCheck && <Checkout onCancel={props.onClose} />}
+      {isCheck && <Checkout onConfirm={submitOrder} onCancel={props.onClose} />}
       {!isCheck && modalActions}
     </Modal>
   );
