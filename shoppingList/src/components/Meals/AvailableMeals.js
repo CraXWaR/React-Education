@@ -1,55 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import Card from "../UI/Card";
-import MealItem from "./MealItem/MealItem";
-import classes from "./AvailableMeals.module.css";
+import Card from '../UI/Card';
+import MealItem from './MealItem/MealItem';
+import classes from './AvailableMeals.module.css';
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
+  const [httpError, setHttpError] = useState();
 
   useEffect(() => {
-    const fetchedMeals = async () => {
-      const res = await fetch("firebaseDB/meals.json");
+    const fetchMeals = async () => {
+      const response = await fetch(
+        'https://react-http-6b4a6.firebaseio.com/meals.json'
+      );
 
-      if (!res.ok) {
-        throw new Error("Smth is wrong!");
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
       }
 
-      const data = await res.json();
+      const responseData = await response.json();
 
-      const arrData = [];
+      const loadedMeals = [];
 
-      for (const key in data) {
-        arrData.push({
+      for (const key in responseData) {
+        loadedMeals.push({
           id: key,
-          name: data[key].name,
-          description: data[key].description,
-          price: data[key].price,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
         });
       }
-      setMeals(arrData);
+
+      setMeals(loadedMeals);
       setIsLoading(false);
     };
-    fetchedMeals().catch((error) => {
+
+    fetchMeals().catch((error) => {
       setIsLoading(false);
-      setError(error.message);
+      setHttpError(error.message);
     });
   }, []);
 
   if (isLoading) {
     return (
-      <section className={classes.mealsLoading}>
+      <section className={classes.MealsLoading}>
         <p>Loading...</p>
       </section>
     );
   }
 
-  if (error) {
+  if (httpError) {
     return (
-      <section className={classes.mealsError}>
-        <p>{error}</p>
+      <section className={classes.MealsError}>
+        <p>{httpError}</p>
       </section>
     );
   }
