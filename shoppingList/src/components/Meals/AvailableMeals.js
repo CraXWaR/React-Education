@@ -7,10 +7,16 @@ import classes from "./AvailableMeals.module.css";
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const fetchedMeals = async () => {
       const res = await fetch("firebaseDB/meals.json");
+
+      if (!res.ok) {
+        throw new Error("Smth is wrong!");
+      }
+
       const data = await res.json();
 
       const arrData = [];
@@ -26,13 +32,24 @@ const AvailableMeals = () => {
       setMeals(arrData);
       setIsLoading(false);
     };
-    fetchedMeals();
+    fetchedMeals().catch((error) => {
+      setIsLoading(false);
+      setError(error.message);
+    });
   }, []);
 
   if (isLoading) {
     return (
       <section className={classes.mealsLoading}>
         <p>Loading...</p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className={classes.mealsError}>
+        <p>{error}</p>
       </section>
     );
   }
