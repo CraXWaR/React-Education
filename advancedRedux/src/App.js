@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import Cart from "./components/Cart/Cart";
@@ -7,6 +7,14 @@ import Products from "./components/Shop/Products";
 
 function App() {
   const showCart = useSelector((state) => state.ui.cartVisible);
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    fetch("firebase-url/cart.json", {
+      method: "PUT",
+      body: JSON.stringify(cart),
+    });
+  }, [cart]);
 
   return (
     <Layout>
@@ -15,5 +23,6 @@ function App() {
     </Layout>
   );
 }
+
 
 export default App;
