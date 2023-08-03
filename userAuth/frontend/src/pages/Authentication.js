@@ -37,5 +37,10 @@ export const action = async ({ req }) => {
     throw json({ message: "Could not auth user" }, { status: 500 });
   }
 
+  const restData = await res.json();
+  const token = restData.token;
+
+  localStorage.setItem("token", token);
+
   return redirect("/");
 };
