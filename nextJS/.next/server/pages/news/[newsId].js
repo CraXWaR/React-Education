@@ -63,7 +63,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"./node_modules/react/jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction DetailsPage() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n        children: \"Details Page\"\n    }, void 0, false, {\n        fileName: \"E:\\\\programming\\\\repostories\\\\React-Education\\\\nextJS\\\\pages\\\\news\\\\[newsId].js\",\n        lineNumber: 2,\n        columnNumber: 10\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailsPage);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9uZXdzL1tuZXdzSWRdLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQSxTQUFTQTtJQUNQLHFCQUFPLDhEQUFDQztrQkFBRzs7Ozs7O0FBQ2I7QUFFQSxpRUFBZUQsV0FBV0EsRUFBQyIsInNvdXJjZXMiOlsid2VicGFjazovL25leHRqcy1jb3Vyc2UvLi9wYWdlcy9uZXdzL1tuZXdzSWRdLmpzPzRjYmQiXSwic291cmNlc0NvbnRlbnQiOlsiZnVuY3Rpb24gRGV0YWlsc1BhZ2UoKSB7XHJcbiAgcmV0dXJuIDxoMT5EZXRhaWxzIFBhZ2U8L2gxPjtcclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgRGV0YWlsc1BhZ2U7XHJcbiJdLCJuYW1lcyI6WyJEZXRhaWxzUGFnZSIsImgxIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/news/[newsId].js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"./node_modules/react/jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction DetailsPage() {\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();\n    const newsId = router.query.newsId;\n    //fetch data\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n        children: \"Details Page\"\n    }, void 0, false, {\n        fileName: \"E:\\\\programming\\\\repostories\\\\React-Education\\\\nextJS\\\\pages\\\\news\\\\[newsId].js\",\n        lineNumber: 9,\n        columnNumber: 10\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailsPage);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9uZXdzL1tuZXdzSWRdLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUF3QztBQUV4QyxTQUFTQztJQUNQLE1BQU1DLFNBQVNGLHNEQUFTQTtJQUV4QixNQUFNRyxTQUFTRCxPQUFPRSxLQUFLLENBQUNELE1BQU07SUFDbEMsWUFBWTtJQUVaLHFCQUFPLDhEQUFDRTtrQkFBRzs7Ozs7O0FBQ2I7QUFFQSxpRUFBZUosV0FBV0EsRUFBQyIsInNvdXJjZXMiOlsid2VicGFjazovL25leHRqcy1jb3Vyc2UvLi9wYWdlcy9uZXdzL1tuZXdzSWRdLmpzPzRjYmQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlUm91dGVyIH0gZnJvbSBcIm5leHQvcm91dGVyXCI7XHJcblxyXG5mdW5jdGlvbiBEZXRhaWxzUGFnZSgpIHtcclxuICBjb25zdCByb3V0ZXIgPSB1c2VSb3V0ZXIoKTtcclxuXHJcbiAgY29uc3QgbmV3c0lkID0gcm91dGVyLnF1ZXJ5Lm5ld3NJZDtcclxuICAvL2ZldGNoIGRhdGFcclxuXHJcbiAgcmV0dXJuIDxoMT5EZXRhaWxzIFBhZ2U8L2gxPjtcclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgRGV0YWlsc1BhZ2U7XHJcbiJdLCJuYW1lcyI6WyJ1c2VSb3V0ZXIiLCJEZXRhaWxzUGFnZSIsInJvdXRlciIsIm5ld3NJZCIsInF1ZXJ5IiwiaDEiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/news/[newsId].js\n");
 
 /***/ }),
 
@@ -228,6 +228,17 @@ module.exports = require("next/dist/shared/lib/html-context.js");
 
 "use strict";
 module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/router");
 
 /***/ }),
 
