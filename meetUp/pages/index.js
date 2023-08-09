@@ -14,20 +14,17 @@ function HomePage(props) {
           content="Browse a huge list of highly active React meetups!"
         />
       </Head>
-      <MeetupList meetups={props.meetups} />;
+      <MeetupList meetups={props.meetups} />
     </Fragment>
   );
 }
 
 export async function getStaticProps() {
-  // fetch data from an API
   const client = await MongoClient.connect(
     "mongodb+srv://craxwar:bvvtqYY6DkyBVNkS@atlascluster.5pwkjes.mongodb.net/meetupsDb?retryWrites=true&w=majority"
   );
   const db = client.db();
-
   const meetupsCollection = db.collection("meetups");
-
   const meetups = await meetupsCollection.find().toArray();
 
   client.close();
