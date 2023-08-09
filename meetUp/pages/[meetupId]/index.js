@@ -1,49 +1,72 @@
-import MeetupDetail from "../../components/meetups/MeetupDetails";
+import { MongoClient, ObjectId } from 'mongodb';
+import { Fragment } from 'react';
+import Head from 'next/head';
 
-function MeetupDetails() {
+import MeetupDetail from '../../components/meetups/MeetupDetail';
+
+function MeetupDetails(props) {
   return (
-    <MeetupDetail
-      image="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
-      title="meetup"
-      addres="some street"
-      description="1st meetup"
-    />
+    <Fragment>
+      <Head>
+        <title>{props.meetupData.title}</title>
+        <meta name='description' content={props.meetupData.description} />
+      </Head>
+      <MeetupDetail
+        image={props.meetupData.image}
+        title={props.meetupData.title}
+        address={props.meetupData.address}
+        description={props.meetupData.description}
+      />
+    </Fragment>
   );
 }
 
 export async function getStaticPaths() {
+  const client = await MongoClient.connect(
+    "mongodb+srv://craxwar:bvvtqYY6DkyBVNkS@atlascluster.5pwkjes.mongodb.net/meetupsDb?retryWrites=true&w=majority"  );
+  const db = client.db();
+
+  const meetupsCollection = db.collection('meetups');
+
+  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+
+  client.close();
+
   return {
-    fallback: false,
-    paths: [
-      {
-        params: {
-          meetupId: "m1",
-        },
-      },
-      {
-        params: {
-          meetupId: "m2",
-        },
-      },
-    ],
+    fallback: 'blocking',
+    paths: meetups.map((meetup) => ({
+      params: { meetupId: meetup._id.toString() },
+    })),
   };
 }
 
-export async function getStaticProps(contex) {
-  const meetupId = contex.params.meetupId;
+export async function getStaticProps(context) {
+  // fetch data for a single meetup
+
+  const meetupId = context.params.meetupId;
+
+  const client = await MongoClient.connect(
+    "mongodb+srv://craxwar:bvvtqYY6DkyBVNkS@atlascluster.5pwkjes.mongodb.net/meetupsDb?retryWrites=true&w=majority"  );
+  const db = client.db();
+
+  const meetupsCollection = db.collection('meetups');
+
+  const selectedMeetup = await meetupsCollection.findOne({
+    _id: ObjectId(meetupId),
+  });
+
+  client.close();
 
   return {
     props: {
       meetupData: {
-        image:
-          "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
-        id: meetupId,
-        title: "meetup",
-        addres: "some street",
-        description: "1st meetup",
+        id: selectedMeetup._id.toString(),
+        title: selectedMeetup.title,
+        address: selectedMeetup.address,
+        image: selectedMeetup.image,
+        description: selectedMeetup.description,
       },
     },
-    revalidate: 1,
   };
 }
 
